@@ -31,21 +31,19 @@ const App = () => {
   }
 
   return (
-    <Grid container spacing={0} justify="center">
-      <Grid item xs={11}>
-        <Grid container spacing={10}>
-          <Grid item xs={12}>
-            <SearchBar onFormSubmit={handleSubmit}/>
-          </Grid>
-          <Grid item xs={8}>
-            <VideoDetail video={selectedVideo}/>
-          </Grid>
-          <Grid item xs={4}>
-            <VideoList videos={videos} onVideoSelect={handleVideoSelect}/>
-          </Grid>
+    <div style={{marginLeft: "2%", marginRight: "2%"}}>
+      <Grid container spacing={5} justify="center">
+        <Grid item xs={12}>
+          <SearchBar onFormSubmit={handleSubmit}/>
+        </Grid>
+        <Grid item xs={8}>
+          <VideoDetail video={selectedVideo}/>
+        </Grid>
+        <Grid item xs={4}>
+          <VideoList videos={videos} onVideoSelect={handleVideoSelect}/>
         </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 }
 
