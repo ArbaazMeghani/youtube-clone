@@ -24,6 +24,10 @@ const App = () => {
     console.log(searchTerm)
   }
 
+  const handleVideoSelect = (video) => {
+    console.log(video)
+  }
+
   return (
     <Grid container spacing={0} justify="center">
       <Grid item xs={11}>
@@ -35,7 +39,7 @@ const App = () => {
             <VideoDetail video={videos[0]}/>
           </Grid>
           <Grid item xs={4}>
-            <VideoList videos={videos}/>
+            <VideoList videos={videos} onVideoSelect={handleVideoSelect}/>
           </Grid>
         </Grid>
       </Grid>
