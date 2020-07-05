@@ -32,7 +32,7 @@ const App = () => {
       <SearchBar onFormSubmit={handleSubmit}/>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={() => <Home videos={videos}/>} />
           <Route path="/watch" render={() => <VideoPage videos={videos}/>}/>
           <Route path="/upload" component={Upload} />
         </Switch>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Grid } from '@material-ui/core'
-import { VideoDetail, VideoList } from './components'
+import { VideoDetail, VideoItem } from './components'
+import { VideoList } from '../common'
 
 const VideoPage = ({videos}) => {
   const [selectedVideo, setSelectedVideo] = useState(videos[0])
@@ -15,7 +16,7 @@ const VideoPage = ({videos}) => {
         <VideoDetail video={selectedVideo}/>
       </Grid>
       <Grid item xs={4}>
-        <VideoList videos={videos} onVideoSelect={handleVideoSelect}/>
+        <VideoList videos={videos} onVideoSelect={handleVideoSelect} VideoItem={VideoItem}/>
       </Grid>
     </Grid>
   )

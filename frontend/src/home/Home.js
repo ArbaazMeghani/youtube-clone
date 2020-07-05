@@ -1,10 +1,15 @@
 import React from 'react'
+import VideoList from '../common/VideoList'
+import { VideoItem } from './components'
 
-const Home = () => {
+const Home = ({videos}) => {
+
+  const handleVideoSelect = (video) => {
+    console.log(video)
+  }
+
   return (
-    <div>
-      Home
-    </div>
+    <VideoList videos={videos} onVideoSelect={handleVideoSelect} VideoItem={VideoItem} />
   )
 }
 
