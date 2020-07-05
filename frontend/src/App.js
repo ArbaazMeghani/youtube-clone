@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import VideoPage from './videoPage/VideoPage';
 import { SearchBar } from './common';
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
@@ -23,8 +23,14 @@ const App = () => {
     thumbnailUrl: "https://cdn.wrytin.com/images/thumbnail/r/400/wake-me-up-when-september-ends-chords-jdag1ses.jpeg"
   }]
 
+  const [initialSelectedVideo, setInitialSelectedVideo] = useState(videos[0])
+
   const handleSubmit = (searchTerm) => {
     console.log(searchTerm)
+  }
+
+  const handleVideoSelect = (video) => {
+    setInitialSelectedVideo(video)
   }
 
   return (
@@ -32,8 +38,8 @@ const App = () => {
       <SearchBar onFormSubmit={handleSubmit}/>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" render={() => <Home videos={videos}/>} />
-          <Route path="/watch" render={() => <VideoPage videos={videos}/>}/>
+          <Route exact path="/" render={() => <Home videos={videos} onVideoSelect={handleVideoSelect}/>} />
+          <Route path="/watch" render={() => <VideoPage videos={videos} initialSelectedVideo={initialSelectedVideo}/>}/>
           <Route path="/upload" component={Upload} />
         </Switch>
       </BrowserRouter>

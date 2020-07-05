@@ -3,8 +3,8 @@ import { Grid } from '@material-ui/core'
 import { VideoDetail, VideoItem } from './components'
 import { VideoList } from '../common'
 
-const VideoPage = ({videos}) => {
-  const [selectedVideo, setSelectedVideo] = useState(videos[0])
+const VideoPage = ({videos, initialSelectedVideo}) => {
+  const [selectedVideo, setSelectedVideo] = useState(initialSelectedVideo)
 
   const handleVideoSelect = (video) => {
     setSelectedVideo(video)
