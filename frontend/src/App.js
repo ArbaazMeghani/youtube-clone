@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid } from '@material-ui/core'
 import {SearchBar, VideoList, VideoDetail} from './components'
 
@@ -20,12 +20,14 @@ const App = () => {
     thumbnailUrl: "https://cdn.wrytin.com/images/thumbnail/r/400/wake-me-up-when-september-ends-chords-jdag1ses.jpeg"
   }]
 
+  const [selectedVideo, setSelectedVideo] = useState(videos[0])
+
   const handleSubmit = (searchTerm) => {
     console.log(searchTerm)
   }
 
   const handleVideoSelect = (video) => {
-    console.log(video)
+    setSelectedVideo(video)
   }
 
   return (
@@ -36,7 +38,7 @@ const App = () => {
             <SearchBar onFormSubmit={handleSubmit}/>
           </Grid>
           <Grid item xs={8}>
-            <VideoDetail video={videos[0]}/>
+            <VideoDetail video={selectedVideo}/>
           </Grid>
           <Grid item xs={4}>
             <VideoList videos={videos} onVideoSelect={handleVideoSelect}/>
