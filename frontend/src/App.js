@@ -33,7 +33,7 @@ const App = () => {
   return (
     <Grid container spacing={0} justify="center">
       <Grid item xs={11}>
-        <Grid container spacing={5}>
+        <Grid container spacing={10}>
           <Grid item xs={12}>
             <SearchBar onFormSubmit={handleSubmit}/>
           </Grid>
