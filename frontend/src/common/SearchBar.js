@@ -8,6 +8,7 @@ import {useState} from 'react'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginBottom: '2%'
   },
   title: {
     marginRight: '10%',
