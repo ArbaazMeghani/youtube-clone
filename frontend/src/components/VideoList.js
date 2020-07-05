@@ -1,10 +1,13 @@
 import React from 'react'
+import { Grid } from '@material-ui/core'
+import VideoItem from './VideoItem'
 
-const VideoList = () => {
+const VideoList = ({videos}) => {
+  const videoItems = videos.map(video => <VideoItem video={video} key={video.id}/>)
   return (
-    <h1>
-      Video List
-    </h1>
+    <>
+      {videoItems}
+    </>
   )
 }
 
