@@ -1,6 +1,9 @@
 import React from 'react';
 import VideoPage from './videoPage/VideoPage';
 import { SearchBar } from './common';
+import { BrowserRouter, Route, Switch} from 'react-router-dom'
+import Home from './home/Home';
+import Upload from './upload/upload';
 
 const App = () => {
   const videos = [{
@@ -27,7 +30,13 @@ const App = () => {
   return (
     <div style={{marginLeft: "2%", marginRight: "2%"}}>
       <SearchBar onFormSubmit={handleSubmit}/>
-      <VideoPage videos={videos}/>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/watch" render={() => <VideoPage videos={videos}/>}/>
+          <Route path="/upload" component={Upload} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
