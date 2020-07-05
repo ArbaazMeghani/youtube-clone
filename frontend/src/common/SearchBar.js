@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AppBar, Typography, InputBase, Toolbar, Button} from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload'
 import { fade, makeStyles } from '@material-ui/core/styles';
-import {useState} from 'react'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -86,7 +86,7 @@ const SearchBar = ({onFormSubmit}) => {
         <AppBar position="static">
           <Toolbar>
             <Typography className={classes.title} variant="h6" noWrap>
-              YouTube Clone
+              <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}>YouTube Clone</Link>
             </Typography>
             <div className={classes.search}>
               <div className={classes.searchIcon}>

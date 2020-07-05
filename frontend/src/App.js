@@ -35,8 +35,8 @@ const App = () => {
 
   return (
     <div style={{marginLeft: "2%", marginRight: "2%"}}>
-      <SearchBar onFormSubmit={handleSubmit}/>
       <BrowserRouter>
+      <SearchBar onFormSubmit={handleSubmit}/>
         <Switch>
           <Route exact path="/" render={() => <Home videos={videos} onVideoSelect={handleVideoSelect}/>} />
           <Route path="/watch" render={() => <VideoPage videos={videos} initialSelectedVideo={initialSelectedVideo}/>}/>
