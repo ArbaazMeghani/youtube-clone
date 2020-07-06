@@ -2,17 +2,17 @@ import React from 'react'
 import { Input, Button } from '@material-ui/core'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload'
 
-const UploadButton = () => {
+const UploadButton = ({uploadItem}) => {
   return (
-    <label htmlFor="upload-video">
+    <label htmlFor={`upload-${uploadItem}`}>
       <Input
         style={{ display: 'none' }}
-        id="upload-video"
-        name="upload-video"
+        id={`upload-${uploadItem}`}
+        name={`upload-${uploadItem}`}
         type="file"
       />
       <Button color="secondary" variant="contained" startIcon={<CloudUploadIcon />}>
-        Upload button
+        {uploadItem}
       </Button>
     </label>
   )
