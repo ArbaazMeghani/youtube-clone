@@ -1,11 +1,8 @@
 import React from 'react'
+import { UploadButton } from './components'
 
 const Upload = () => {
-  return (
-    <div>
-      Upload
-    </div>
-  )
+  return <UploadButton />
 }
 
 export default Upload

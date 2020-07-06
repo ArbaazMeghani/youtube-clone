@@ -3,7 +3,7 @@ import VideoPage from './videoPage/VideoPage';
 import { SearchBar } from './common';
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import Home from './home/Home';
-import Upload from './upload/upload';
+import Upload from './upload/Upload';
 
 const App = () => {
   const videos = [{
