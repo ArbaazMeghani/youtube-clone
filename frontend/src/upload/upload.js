@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { UploadButton } from './components'
 import { TextField, Grid, Button } from '@material-ui/core'
 
 const Upload = () => {
+  const [title, setTitle] = useState('')
+  const [author, setAuthor] = useState('')
+  const [description, setDescription] = useState('')
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -12,7 +15,7 @@ const Upload = () => {
   return (
     <form onSubmit={handleSubmit} style={{margin: "5%"}}>
       <Grid container spacing={10} direction="column" alignItems="center" justify="space-evenly">
-        <div style={{marginBottom: "2%"}}>
+        <div style={{marginBottom: "2%", marginTop: "2%"}}>
           <Grid container spacing={10} alignItems="center" justify="center">
             <Grid item>
               <UploadButton uploadItem="Video"/>
@@ -24,10 +27,10 @@ const Upload = () => {
         </div>
         <Grid container spacing={5} alignItems="center" justify="center">
           <Grid item xs={6}>
-            <TextField label="Title" variant="outlined" fullWidth required />
+            <TextField label="Title" variant="outlined" value={title} onChange={event => setTitle(event.target.value)} fullWidth required />
           </Grid>
           <Grid item xs={6}>
-            <TextField label="Author" variant="outlined" required />
+            <TextField label="Author" variant="outlined" value={author} onChange={event => setAuthor(event.target.value)} required />
           </Grid>
           <Grid item xs={12}>
             <TextField
@@ -37,6 +40,8 @@ const Upload = () => {
               variant="outlined"
               fullWidth
               required
+              value={description}
+              onChange={event => setDescription(event.target.value)}
             />
           </Grid>
         </Grid>
