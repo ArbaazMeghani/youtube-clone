@@ -6,6 +6,8 @@ const Upload = () => {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [description, setDescription] = useState('')
+  const [thumbnail, setThumbnail] = useState('')
+  const [video, setVideo] = useState('')
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -18,10 +20,10 @@ const Upload = () => {
         <div style={{marginBottom: "2%", marginTop: "2%"}}>
           <Grid container spacing={10} alignItems="center" justify="center">
             <Grid item>
-              <UploadButton uploadItem="Video"/>
+              <UploadButton uploadItem="Video"  onFileUpload={setVideo}/>
             </Grid>
             <Grid item>
-              <UploadButton uploadItem="Thumbnail"/>
+              <UploadButton uploadItem="Thumbnail" onFileUpload={setThumbnail}/>
             </Grid>
           </Grid>
         </div>
