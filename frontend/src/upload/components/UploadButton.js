@@ -11,7 +11,7 @@ const UploadButton = ({uploadItem, onFileUpload}) => {
         id={upload}
         name={upload}
         type="file"
-        onChange={event => onFileUpload(event.target.value)}
+        onChange={event => onFileUpload(event.target.files)}
       />
       <Button color="secondary" variant="contained" component="span" startIcon={<CloudUploadIcon />}>
         {uploadItem}
