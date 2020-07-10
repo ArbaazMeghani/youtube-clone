@@ -4,6 +4,15 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload'
 
 const UploadButton = ({uploadItem, onFileUpload}) => {
   const upload = `upload-${uploadItem}`
+
+  const handleFileUpload = (event) => {
+    let reader = new FileReader()
+    reader.readAsDataURL(event.target.files[0])
+    reader.onload = event => {
+      onFileUpload(event.target.result)
+    }
+  }
+
   return (
     <label htmlFor={upload}>
       <Input
@@ -11,7 +20,7 @@ const UploadButton = ({uploadItem, onFileUpload}) => {
         id={upload}
         name={upload}
         type="file"
-        onChange={event => onFileUpload(event.target.files)}
+        onChange={handleFileUpload}
       />
       <Button color="secondary" variant="contained" component="span" startIcon={<CloudUploadIcon />}>
         {uploadItem}

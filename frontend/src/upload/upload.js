@@ -14,8 +14,6 @@ const Upload = () => {
     console.log("SUBMITTED UPLOAD")
   }
 
-  console.log(thumbnail)
-
   return (
     <form onSubmit={handleSubmit} style={{margin: "5%"}}>
       <Grid container spacing={10} direction="column" alignItems="center" justify="space-evenly">
