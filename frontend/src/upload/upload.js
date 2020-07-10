@@ -14,6 +14,8 @@ const Upload = () => {
     console.log("SUBMITTED UPLOAD")
   }
 
+  
+
   return (
     <form onSubmit={handleSubmit} style={{margin: "5%"}}>
       <Grid container spacing={10} direction="column" alignItems="center" justify="space-evenly">
@@ -29,10 +31,10 @@ const Upload = () => {
         </div>
         <Grid container spacing={5} alignItems="center" justify="center">
           <Grid item xs={6}>
-            <TextField label="Title" variant="outlined" value={title} onChange={event => setTitle(event.target.files)} fullWidth required />
+            <TextField label="Title" variant="outlined" value={title} onChange={event => setTitle(event.target.value)} fullWidth required />
           </Grid>
           <Grid item xs={6}>
-            <TextField label="Author" variant="outlined" value={author} onChange={event => setAuthor(event.target.files)} required />
+            <TextField label="Author" variant="outlined" value={author} onChange={event => setAuthor(event.target.value)} required />
           </Grid>
           <Grid item xs={12}>
             <TextField
