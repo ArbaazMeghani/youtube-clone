@@ -1,0 +1,5 @@
+rootProject.name = 'youtube-clone'
+include 'video-service'
+include 'common'
+include 'naming-server'
+include 'proxy-server'
