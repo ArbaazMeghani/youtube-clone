@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Input, Button, TextField } from '@material-ui/core'
+import { Input, Button, TextField, Grid } from '@material-ui/core'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload'
 
 const UploadButton = ({uploadItem, onFileUpload}) => {
@@ -24,10 +24,16 @@ const UploadButton = ({uploadItem, onFileUpload}) => {
         type="file"
         onChange={handleFileUpload}
       />
-      <Button color="secondary" variant="contained" component="span" startIcon={<CloudUploadIcon />}>
-        {uploadItem}
-      </Button>
-      <TextField value={fileName} disabled label="Choose a file..." required/>
+      <Grid container spacing={10} justify="center" alignItems="center">
+        <Grid item>
+          <Button color="secondary" variant="contained" component="span" startIcon={<CloudUploadIcon />}>
+            {uploadItem}
+          </Button>
+        </Grid>
+        <Grid item>
+          <TextField value={fileName} disabled label="Choose a file..." required/>
+        </Grid>
+      </Grid>
     </label>
   )
 }
