@@ -1,7 +1,9 @@
 package com.arbaazmeghani;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class VideoService {
 
@@ -11,12 +13,13 @@ public class VideoService {
         this.repository = repository;
     }
 
-
     public String retrieveVideos() {
         return null;
     }
 
-    public void saveVideo() {
-
+    public void saveVideo(Video video) {
+        log.info(video.getAuthor());
+        log.info(video.getDescription());
+        log.info(video.getTitle());
     }
 }

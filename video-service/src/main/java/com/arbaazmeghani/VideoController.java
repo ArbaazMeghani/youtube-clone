@@ -1,8 +1,6 @@
 package com.arbaazmeghani;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class VideoController {
@@ -19,7 +17,7 @@ public class VideoController {
     }
 
     @PostMapping("/videos")
-    public void saveVideo() {
-
+    public void saveVideo(@RequestBody Video video) {
+        service.saveVideo(video);
     }
 }
