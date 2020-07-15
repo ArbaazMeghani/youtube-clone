@@ -21,5 +21,7 @@ public class VideoService {
         log.info(video.getAuthor());
         log.info(video.getDescription());
         log.info(video.getTitle());
+        log.info(video.getThumbnail().getOriginalFilename());
+        log.info(video.getVideo().getOriginalFilename());
     }
 }

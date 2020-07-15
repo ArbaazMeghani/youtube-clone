@@ -17,7 +17,7 @@ public class VideoController {
     }
 
     @PostMapping("/videos")
-    public void saveVideo(@RequestBody Video video) {
+    public void saveVideo(@ModelAttribute Video video) {
         service.saveVideo(video);
     }
 }
