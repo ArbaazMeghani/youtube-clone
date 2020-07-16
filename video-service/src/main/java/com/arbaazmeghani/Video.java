@@ -29,4 +29,7 @@ public class Video {
     String title;
     String author;
     String description;
+
+    String thumbnailPath;
+    String videoPath;
 }

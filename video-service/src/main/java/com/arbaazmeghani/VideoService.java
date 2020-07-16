@@ -22,16 +22,12 @@ public class VideoService {
     }
 
     public void saveVideo(Video video) throws IOException {
-        log.info(video.getAuthor());
-        log.info(video.getDescription());
-        log.info(video.getTitle());
-        log.info(video.getThumbnail().getOriginalFilename());
-        log.info(video.getVideo().getOriginalFilename());
-
         String thumbnailPath = fileStorageService.save(video.getThumbnail());
         String videoPath = fileStorageService.save(video.getVideo());
 
-        log.info(thumbnailPath);
-        log.info(videoPath);
+        video.setThumbnailPath(thumbnailPath);
+        video.setVideoPath(videoPath);
+
+        repository.save(video);
     }
 }
