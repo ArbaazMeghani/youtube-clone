@@ -20,15 +20,17 @@ public class FileStorageService {
         createDirectory(UPLOAD_ROOT_DIRECTORY);
     }
 
-    public void save(String subdirectory, MultipartFile file) throws IOException {
+    public String save(String subdirectory, MultipartFile file) throws IOException {
         createDirectory(UPLOAD_ROOT_DIRECTORY + "/" + subdirectory);
         Path destination = Paths.get(UPLOAD_ROOT_DIRECTORY, subdirectory, generateUniqueFileName(file.getOriginalFilename()));
         Files.copy(file.getInputStream(), destination, StandardCopyOption.REPLACE_EXISTING);
+        return destination.toString();
     }
 
-    public void save(MultipartFile file) throws IOException {
+    public String save(MultipartFile file) throws IOException {
         Path destination = Paths.get(UPLOAD_ROOT_DIRECTORY, generateUniqueFileName(file.getOriginalFilename()));
         Files.copy(file.getInputStream(), destination, StandardCopyOption.REPLACE_EXISTING);
+        return destination.toString();
     }
 
     private void createDirectory(String directory) throws IOException {

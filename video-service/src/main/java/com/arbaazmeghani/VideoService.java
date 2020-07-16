@@ -32,6 +32,11 @@ public class VideoService {
         log.info(video.getTitle());
         log.info(video.getThumbnail().getOriginalFilename());
         log.info(video.getVideo().getOriginalFilename());
-        fileStorageService.save(video.getThumbnail());
+
+        String thumbnailPath = fileStorageService.save(video.getThumbnail());
+        String videoPath = fileStorageService.save(video.getVideo());
+
+        log.info(thumbnailPath);
+        log.info(videoPath);
     }
 }
