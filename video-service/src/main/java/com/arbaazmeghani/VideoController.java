@@ -2,6 +2,8 @@ package com.arbaazmeghani;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @RestController
 public class VideoController {
 
@@ -17,7 +19,7 @@ public class VideoController {
     }
 
     @PostMapping("/videos")
-    public void saveVideo(@ModelAttribute Video video) {
+    public void saveVideo(@ModelAttribute Video video) throws IOException {
         service.saveVideo(video);
     }
 }
