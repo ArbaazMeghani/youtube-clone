@@ -27,3 +27,15 @@ eureka:
 
 storage:
   root: ./uploads
+
+proxy:
+  url: ${PROXY_URL}
+  port: ${PROXY_PORT}
+
+---
+spring:
+  profile: local
+
+proxy:
+  url: http://localhost
+  port: 8762

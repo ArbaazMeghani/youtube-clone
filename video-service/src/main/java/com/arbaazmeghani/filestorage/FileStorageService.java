@@ -26,11 +26,12 @@ public class FileStorageService {
     public FileStorageService(Environment environment) throws IOException {
         UPLOAD_ROOT_DIRECTORY = environment.getProperty("storage.root");
 
-        String port = environment.getProperty("server.port");
+        String port = environment.getProperty("proxy.port");
+        String address = environment.getProperty("proxy.url");
         String contextPath = environment.getProperty("server.servlet.context-path");
         String retrievePath = "/assets/";
 
-        host = "http://" + InetAddress.getLocalHost().getHostAddress() + ":" + port + contextPath + retrievePath;
+        host = address + ":" + port + contextPath + retrievePath;
 
         createDirectory(UPLOAD_ROOT_DIRECTORY);
     }
