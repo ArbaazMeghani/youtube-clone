@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Input, Button, TextField, Grid } from '@material-ui/core'
+import { Button, TextField, Grid } from '@material-ui/core'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload'
 
-const UploadButton = ({uploadItem, onFileUpload}) => {
+const UploadButton = ({uploadItem, fileType, onFileUpload}) => {
   const upload = `upload-${uploadItem}`
   const [fileName, setFileName] = useState('')
 
@@ -17,11 +17,12 @@ const UploadButton = ({uploadItem, onFileUpload}) => {
 
   return (
     <label htmlFor={upload}>
-      <Input
+      <input
         style={{ display: 'none' }}
         id={upload}
         name={upload}
         type="file"
+        accept={fileType}
         onChange={handleFileUpload}
       />
       <Grid container spacing={10} justify="center" alignItems="center">

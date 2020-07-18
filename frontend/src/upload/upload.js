@@ -14,18 +14,16 @@ const Upload = () => {
     console.log("SUBMITTED UPLOAD")
   }
 
-  
-
   return (
     <form onSubmit={handleSubmit} style={{margin: "5%"}}>
       <Grid container spacing={10} direction="column" alignItems="center" justify="space-evenly">
         <div style={{marginBottom: "2%", marginTop: "2%"}}>
           <Grid container spacing={10} alignItems="center" justify="center">
             <Grid item>
-              <UploadButton uploadItem="Video"  onFileUpload={setVideo}/>
+              <UploadButton uploadItem="Video" fileType="video/*" onFileUpload={setVideo}/>
             </Grid>
             <Grid item>
-              <UploadButton uploadItem="Thumbnail" onFileUpload={setThumbnail}/>
+              <UploadButton uploadItem="Thumbnail" fileType="image/*" onFileUpload={setThumbnail}/>
             </Grid>
           </Grid>
         </div>
