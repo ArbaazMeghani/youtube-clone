@@ -1,6 +1,11 @@
 spring:
   application:
     name: proxy-server
+  servlet:
+    multipart:
+      max-file-size: 128MB
+      max-request-size: 128MB
+      enabled: true
 
 server:
   port: 8762
