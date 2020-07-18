@@ -1,17 +1,26 @@
 import React, { useState } from 'react'
 import { UploadButton } from './components'
 import { TextField, Grid, Button } from '@material-ui/core'
+import Axios from 'axios'
 
 const Upload = () => {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [description, setDescription] = useState('')
-  const [thumbnail, setThumbnail] = useState('')
-  const [video, setVideo] = useState('')
+  const [thumbnail, setThumbnail] = useState({name: ''})
+  const [video, setVideo] = useState({name: ''})
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log("SUBMITTED UPLOAD")
+
+    let formData = new FormData()
+    formData.set("author", author)
+    formData.set("title", title);
+    formData.set("description", description)
+    formData.set("thumbnail", thumbnail)
+    formData.set("video", video)
+
+    Axios.post("http://localhost:8762/video-service/videos", formData)
   }
 
   return (
@@ -20,10 +29,10 @@ const Upload = () => {
         <div style={{marginBottom: "2%", marginTop: "2%"}}>
           <Grid container spacing={10} alignItems="center" justify="center">
             <Grid item>
-              <UploadButton uploadItem="Video" fileType="video/*" onFileUpload={setVideo}/>
+              <UploadButton uploadItem="Video" fileType="video/*" fileName={video.name} onFileUpload={setVideo}/>
             </Grid>
             <Grid item>
-              <UploadButton uploadItem="Thumbnail" fileType="image/*" onFileUpload={setThumbnail}/>
+              <UploadButton uploadItem="Thumbnail" fileType="image/*" fileName={thumbnail.name} onFileUpload={setThumbnail}/>
             </Grid>
           </Grid>
         </div>
