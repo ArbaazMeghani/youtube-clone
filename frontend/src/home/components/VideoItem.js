@@ -6,7 +6,7 @@ const VideoItem = ({ video, onVideoSelect }) => {
     <Grid item>
        <Card style={{maxWidth: "250px", height: "280px"}} onClick={() => onVideoSelect(video)}>
          <CardActionArea height="100%">
-          <CardMedia style={{height: "140px"}} image={video.thumbnailUrl} title={video.title}/>
+          <CardMedia style={{height: "140px"}} image={video.thumbnailSrc} title={video.title}/>
             <CardContent style={{height: "140px"}}>
               <Typography variant="subtitle1">{video.title}</Typography>
             </CardContent>
