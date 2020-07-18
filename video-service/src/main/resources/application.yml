@@ -11,6 +11,9 @@ spring:
   h2:
     console:
       enabled: true
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
 
 server:
   port: 8080
@@ -21,3 +24,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+storage:
+  root: ./uploads

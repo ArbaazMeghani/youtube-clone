@@ -1,5 +1,6 @@
-package com.arbaazmeghani;
+package com.arbaazmeghani.videos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,8 +22,11 @@ public class Video {
     @GeneratedValue
     Long videoId;
 
+    @JsonIgnore
     @Transient
     MultipartFile video;
+
+    @JsonIgnore
     @Transient
     MultipartFile thumbnail;
 
@@ -30,6 +34,6 @@ public class Video {
     String author;
     String description;
 
-    String thumbnailPath;
-    String videoPath;
+    String thumbnailSrc;
+    String videoSrc;
 }
