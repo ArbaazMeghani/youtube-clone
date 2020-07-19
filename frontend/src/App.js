@@ -9,17 +9,14 @@ const App = () => {
 
   const [videos, setVideos] = useState([])
   const [initialSelectedVideo, setInitialSelectedVideo] = useState('')
-
-  const handleSubmit = (searchTerm) => {
-    console.log(searchTerm)
-  }
+  const [searchQuery, setSearchQuery] = useState('')
 
   return (
     <div style={{marginLeft: "2%", marginRight: "2%"}}>
       <BrowserRouter>
-      <SearchBar onFormSubmit={handleSubmit}/>
+      <SearchBar onFormSubmit={setSearchQuery}/>
         <Switch>
-          <Route exact path="/" render={() => <Home videos={videos} updateVideos={setVideos} onVideoSelect={setInitialSelectedVideo}/>} />
+          <Route exact path="/" render={() => <Home searchQuery={searchQuery} videos={videos} updateVideos={setVideos} onVideoSelect={setInitialSelectedVideo}/>} />
           <Route path="/watch" render={() => <VideoPage videos={videos} initialSelectedVideo={initialSelectedVideo}/>}/>
           <Route path="/upload" component={Upload} />
         </Switch>
