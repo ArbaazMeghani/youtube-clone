@@ -2,15 +2,17 @@ import React, { useState } from 'react'
 import { UploadButton } from './components'
 import { TextField, Grid, Button } from '@material-ui/core'
 import Axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 const Upload = () => {
+  let history = useHistory()
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [description, setDescription] = useState('')
   const [thumbnail, setThumbnail] = useState({name: ''})
   const [video, setVideo] = useState({name: ''})
 
-  const handleSubmit = event => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
     let formData = new FormData()
@@ -20,7 +22,8 @@ const Upload = () => {
     formData.set("thumbnail", thumbnail)
     formData.set("video", video)
 
-    Axios.post("http://localhost:8762/video-service/videos", formData)
+    await Axios.post("http://localhost:8762/video-service/videos", formData)
+    history.push("/")
   }
 
   return (
