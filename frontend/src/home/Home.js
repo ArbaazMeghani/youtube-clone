@@ -4,13 +4,13 @@ import { VideoItem } from './components'
 import { useHistory } from 'react-router-dom'
 import { retrieveVideos } from '../api'
 
-const Home = ({videos, updateVideos, onVideoSelect}) => {
+const Home = ({videos, updateVideos, searchQuery, onVideoSelect}) => {
   let history = useHistory()
 
   useEffect(() => {
-    const fetchData = async () => await retrieveVideos(updateVideos)
+    const fetchData = async () => await retrieveVideos(searchQuery, updateVideos)
     fetchData()
-  }, [])
+  }, [searchQuery])
 
   const handleVideoSelect = (video) => {
     onVideoSelect(video)

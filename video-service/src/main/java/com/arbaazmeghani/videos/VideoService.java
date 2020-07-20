@@ -3,7 +3,6 @@ package com.arbaazmeghani.videos;
 import com.arbaazmeghani.filestorage.FileStorageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,12 +19,8 @@ public class VideoService {
         this.fileStorageService = fileStorageService;
     }
 
-    public List<Video> retrieveAllVideoData() {
-        return repository.findAll();
-    }
-
-    public MultipartFile retrieveFile(String fileName) {
-        return fileStorageService.retrieve(fileName);
+    public List<Video> retrieveAllVideoData(String searchQuery) {
+        return repository.findBySearchQuery(searchQuery);
     }
 
     public void saveVideo(Video video) throws IOException {

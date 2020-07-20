@@ -17,8 +17,8 @@ public class VideoController {
     }
 
     @GetMapping("/videos")
-    public List<Video> retrieveVideoData() {
-        return service.retrieveAllVideoData();
+    public List<Video> retrieveVideoData(@RequestParam(required = false) String searchQuery) {
+        return service.retrieveAllVideoData(searchQuery);
     }
 
     @PostMapping("/videos")
